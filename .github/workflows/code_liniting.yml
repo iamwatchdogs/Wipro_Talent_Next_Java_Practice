@@ -21,7 +21,7 @@ jobs:
         
       - name: Display Directory files
         run: |
-          echo ls -al
+          ls -al
 
       - name: Run linter
         run: |
