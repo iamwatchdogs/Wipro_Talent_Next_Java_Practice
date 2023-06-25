@@ -13,13 +13,14 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Setup Java JDK
-        uses: actions/setup-java@v1.4.4
+      - name: Set up Java
+        uses: actions/setup-java@v2
         with:
           java-version: '17'
 
+      - name: Set up Gradle
+        uses: gradle/wrapper-action@v5
+
       - name: Run linter
         run: |
-          echo "lininting java file from path: "
-          echo ${{ github.event.client_payload.paths }}
-          path/to/gradlew lint ${{ github.event.client_payload.paths }}
+          ./gradlew lint ${{ github.event.client_payload.paths }}
