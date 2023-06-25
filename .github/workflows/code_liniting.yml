@@ -16,9 +16,13 @@ jobs:
         with:
           java-version: '17'
 
-      - name: Install Checkstyle
+      - name: Run
         uses: iwata-n/actions-checkstyle@v1.0.0
-        
-      - name: Run linter
-        run: |
-          checkstyle -c path/to/checkstyle.xml ${{ github.event.client_payload.paths }}
+        with:
+          result: result.xml
+          
+      - name: Archive
+        uses: actions/upload-artifact@v2
+        with:
+          name: result
+          path: result.xml
