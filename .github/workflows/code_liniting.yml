@@ -20,5 +20,6 @@ jobs:
 
       - name: Run linter
         run: |
-          echo "lininting java file ${{ github.event.client_payload.paths }}"
-          ./gradlew lint ${{ github.event.client_payload.paths }}
+          echo "lininting java file from path: "
+          echo ${{ github.event.client_payload.paths }}
+          path/to/gradlew lint ${{ github.event.client_payload.paths }}
