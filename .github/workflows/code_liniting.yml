@@ -1,0 +1,24 @@
+name: Java File Lint
+
+on:
+  push:
+    paths:
+      - '*.java'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1.4.4
+        with:
+          java-version: '17'
+
+      - name: Run linter
+        run: |
+          echo "lininting java file ${{ github.event.client_payload.paths }}"
+          ./gradlew lint ${{ github.event.client_payload.paths }}
