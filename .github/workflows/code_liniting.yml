@@ -18,8 +18,11 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/gradle-build-action@v2.4.2
+        
+      - name: Display Directory files
+        run: |
+          echo ls -al
 
       - name: Run linter
         run: |
-          echo "Linting the Java Code for ${{ github.event.inputs.path }}."
           ./gradlew lint ${{ github.event.inputs.path }}
