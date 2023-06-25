@@ -1,10 +1,8 @@
 name: Java File Lint
 
 on:
-  push:
-    paths:
-      - '*.java'
-
+  push
+  
 jobs:
   lint:
     runs-on: ubuntu-latest
