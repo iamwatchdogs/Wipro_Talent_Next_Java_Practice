@@ -20,8 +20,8 @@ import java.util.Scanner;
 public class U1_CC4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int x = scanner.nextInt();
-        int y = scanner.nextInt();
-        System.out.println("Rs." + (y/x)*100);
+        double x = scanner.nextDouble();
+        double y = scanner.nextDouble();
+        System.out.println("Rs." + (int)((y/x)*100));
     }
 }
